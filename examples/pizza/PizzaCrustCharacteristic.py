@@ -13,10 +13,10 @@ class PizzaCrustCharacteristic(Characteristic):
             'uuid': '13333333333333333333333333330001',
             'properties': ['read', 'write'],
             'descriptors': [
-                    Descriptor(
-                        uuid = '2901',
-                        value = 'Gets or sets the type of pizza crust.'
-                    )],   
+                    Descriptor( {
+                        'uuid': '2901',
+                        'value': 'Gets or sets the type of pizza crust.'
+                        })],   
             'value': None
           })
           
