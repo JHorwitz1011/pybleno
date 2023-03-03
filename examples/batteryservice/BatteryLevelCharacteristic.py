@@ -23,19 +23,9 @@ class BatteryLevelCharacteristic(Characteristic):
           })
           
         self._value = array.array('B', [0] * 0)
-        self._updateValueCallback = None
-          
+        self._updateValueCallback = self.test()
+    def test(self):
+       print('DSFOIY ETSID&^FYU SDGUIKISDFGSDYIKFHB')
     def onReadRequest(self, offset, callback):
-      if sys.platform == 'darwin':
-        output = subprocess.check_output("pmset -g batt", shell=True)
-        result = {}
-        for row in output.split('\n'):
-          if 'InternalBatter' in row:
-            percent = row.split('\t')[1].split(';')[0];
-            percent = int(re.findall('\d+', percent)[0]);
-            callback(Characteristic.RESULT_SUCCESS, array.array('B', [percent]))
-            break
-
-      else:
-        callback(Characteristic.RESULT_SUCCESS, array.array('B', [98]))
+      callback(Characteristic.RESULT_SUCCESS, array.array('B', [98]))
 
