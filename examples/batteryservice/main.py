@@ -5,19 +5,19 @@ from BatteryService import *
 
 bleno = Bleno()
 
-primaryService = BatteryService();
+primaryService = BatteryService()
 
 def onStateChange(state):
-   print('on -> stateChange: ' + state);
+   print('on -> stateChange: ' + state)
 
    if (state == 'poweredOn'):
-       bleno.startAdvertising('Battery', [primaryService.uuid]);
+       bleno.startAdvertising('Battery', [primaryService.uuid])
    else:
-     bleno.stopAdvertising();
+     bleno.stopAdvertising()
 bleno.on('stateChange', onStateChange)
 
 def onAdvertisingStart(error):
-    print('on -> advertisingStart: ' + ('error ' + error if error else 'success'));
+    print('on -> advertisingStart: ' + ('error ' + error if error else 'success'))
 
     if not error:
         def on_setServiceError(error):
