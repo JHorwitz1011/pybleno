@@ -8,7 +8,7 @@ from builtins import str
 class PizzaToppingsCharacteristic(Characteristic):
     
     def __init__(self, pizza):
-        super().__init__(self, {
+        Characteristic.__init__(self, {
             'uuid': '13333333333333333333333333330002',
             'properties': ['read', 'write'],
             'descriptors': [

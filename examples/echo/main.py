@@ -3,22 +3,22 @@ import sys
 import signal
 from EchoCharacteristic import *
 
-print('bleno - echo');
+print('bleno - echo')
 
 bleno = Bleno()
 
 def onStateChange(state):
-   print('on -> stateChange: ' + state);
+   print('on -> stateChange: ' + state)
 
    if (state == 'poweredOn'):
      bleno.startAdvertising('echo', ['ec00'])
    else:
-     bleno.stopAdvertising();
+     bleno.stopAdvertising()
 
 bleno.on('stateChange', onStateChange)
     
 def onAdvertisingStart(error):
-    print('on -> advertisingStart: ' + ('error ' + error if error else 'success'));
+    print('on -> advertisingStart: ' + ('error ' + error if error else 'success'))
 
     if not error:
         bleno.setServices([

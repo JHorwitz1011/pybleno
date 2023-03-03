@@ -9,7 +9,7 @@ from Pizza import *
 class PizzaCrustCharacteristic(Characteristic):
     
     def __init__(self, pizza):
-        super().__init__(self, {
+        Characteristic.__init__(self, {
             'uuid': '13333333333333333333333333330001',
             'properties': ['read', 'write'],
             'descriptors': [

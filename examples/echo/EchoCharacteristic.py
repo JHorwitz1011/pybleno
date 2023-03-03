@@ -26,7 +26,7 @@ class EchoCharacteristic(Characteristic):
         print('EchoCharacteristic - %s - onWriteRequest: value = %s' % (self['uuid'], [hex(c) for c in self._value]))
 
         if self._updateValueCallback:
-            print('EchoCharacteristic - onWriteRequest: notifying');
+            print('EchoCharacteristic - onWriteRequest: notifying')
             
             self._updateValueCallback(self._value)
         
@@ -38,6 +38,6 @@ class EchoCharacteristic(Characteristic):
         self._updateValueCallback = updateValueCallback
 
     def onUnsubscribe(self):
-        print('EchoCharacteristic - onUnsubscribe');
+        print('EchoCharacteristic - onUnsubscribe')
         
         self._updateValueCallback = None
