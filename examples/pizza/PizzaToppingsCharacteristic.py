@@ -8,14 +8,14 @@ from builtins import str
 class PizzaToppingsCharacteristic(Characteristic):
     
     def __init__(self, pizza):
-        Characteristic.__init__(self, {
+        super().__init__(self, {
             'uuid': '13333333333333333333333333330002',
             'properties': ['read', 'write'],
             'descriptors': [
-                    Descriptor(
-                        uuid = '2901',
-                        value = 'Gets or sets the pizza toppings.'
-                    )],   
+                    Descriptor({
+                        'uuid': '2901',
+                        'value': 'Gets or sets the pizza toppings.'
+                    })],   
             'value': None
           })
           
@@ -28,7 +28,7 @@ class PizzaToppingsCharacteristic(Characteristic):
         else:
             data = array.array('B', [0] * 2)
             writeUInt8(data, self.pizza.toppings, 0)
-            callback(Characteristic.RESULT_SUCCESS, data);
+            callback(Characteristic.RESULT_SUCCESS, data)
 
     def onWriteRequest(self, data, offset, withoutResponse, callback):
         if offset:
@@ -37,4 +37,4 @@ class PizzaToppingsCharacteristic(Characteristic):
             callback(Characteristic.RESULT_INVALID_ATTRIBUTE_LENGTH)
         else:
             self.pizza.toppings = readUInt16BE(data, 0)
-            callback(Characteristic.RESULT_SUCCESS);
+            callback(Characteristic.RESULT_SUCCESS)

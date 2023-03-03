@@ -50,7 +50,7 @@ class Pizza():
                 result - PizzaBakeResult['BURNT']
             else:
                 result = PizzaBakeResult['ON_FIRE']
-            self.emit('ready', [result]);
+            self.emit('ready', [result])
         thread.start_new_thread(on_timeout, ())
 
 Emit.Patch(Pizza)
