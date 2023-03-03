@@ -29,7 +29,7 @@ class PizzaCrustCharacteristic(Characteristic):
         else:
             data = array.array('B', [0] * 1)
             writeUInt8(data, self.pizza.crust, 0)
-            callback(Characteristic.RESULT_SUCCESS, data);
+            callback(Characteristic.RESULT_SUCCESS, data)
 
     def onWriteRequest(self, data, offset, withoutResponse, callback):
         if offset:
@@ -40,6 +40,6 @@ class PizzaCrustCharacteristic(Characteristic):
             crust = readUInt8(data, 0)
             if crust == PizzaCrust['NORMAL'] or crust == PizzaCrust['DEEP_DISH'] or crust == PizzaCrust['THIN']:
                 self.pizza.crust = crust
-                callback(Characteristic.RESULT_SUCCESS);
+                callback(Characteristic.RESULT_SUCCESS)
             else:
-                callback(Characteristic.RESULT_UNLIKELY_ERROR);
+                callback(Characteristic.RESULT_UNLIKELY_ERROR)
