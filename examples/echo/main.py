@@ -39,7 +39,7 @@ if (sys.version_info > (3, 0)):
     input()
 else:
     raw_input()
-
+print('idk man')
 bleno.stopAdvertising()
 bleno.disconnect()
 
