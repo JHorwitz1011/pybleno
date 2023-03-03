@@ -23,7 +23,7 @@ class BatteryLevelCharacteristic(Characteristic):
           })
           
         self._value = array.array('B', [0] * 0)
-        self._updateValueCallback = self.test()
+        self._updateValueCallback = self.test
     def test(self):
        print('DSFOIY ETSID&^FYU SDGUIKISDFGSDYIKFHB')
     def onReadRequest(self, offset, callback):
